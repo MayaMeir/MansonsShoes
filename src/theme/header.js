@@ -7,7 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './theme.css';
 
 
-function Header() {
+function Header(props) {
     return <header>
 
         <Navbar variant="dark" style={{ backgroundColor: "black"}}>
@@ -21,8 +21,8 @@ function Header() {
             /></Navbar.Brand>
             <Nav>
                 <Nav.Link href="" className="links">About Us</Nav.Link>
-                <Nav.Link href="" className="links" id="collections">Collections</Nav.Link>
-                <Nav.Link href="" className="links">Catagories</Nav.Link>
+                <Nav.Link href="" className="links" id="collections" onMouseEnter={() => props.onShowSubMenu()} onMouseLeave={() => props.onShowSubMenu()} >Collections</Nav.Link>
+                <Nav.Link href="" className="links" >Catagories</Nav.Link>
             </Nav>
             <Form inline>
                 <FormControl type="text" id="searchBtn" placeholder="Bring Me The Search" className="mr-sm-2" />

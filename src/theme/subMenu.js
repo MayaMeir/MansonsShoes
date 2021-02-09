@@ -2,9 +2,9 @@ import React from 'react';
 import './theme.css';
 
 
-function SubMenu() {
+function SubMenu(props) {
 
-    return <div className="subMenu" id="submenu">
+    return <div className="subMenu" id="submenu" onMouseEnter={() => props.onShowSubMenu()}>
         <ul>
             <li><a href="#home">Elvira</a></li>
             <li><a href="#news">Janis</a></li>

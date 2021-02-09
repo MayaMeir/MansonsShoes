@@ -5,6 +5,7 @@ import Header from './header.js';
 import pic from './pictures/NJKUocPkvbeuJQ8XJ4UoJj1T5x139Shd-33.jpg';
 import SubMenu from './subMenu.js';
 import './theme.css';
+import { useState } from 'react';
 
 
 
@@ -18,10 +19,17 @@ function Layout(){
         rating: 5 
       }
 
+    
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisible = () => {
+    setIsVisible(!isVisible)
+  }
+
     return <div>
         <div className="content">
-        <Header />
-        <SubMenu />
+        <Header onShowSubMenu={() => toggleVisible()}/>
+       {isVisible && <SubMenu />}
       <SingleProduct product={product}/>
       </div>
         <Footer />
