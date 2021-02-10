@@ -4,7 +4,7 @@ import './theme.css';
 
 function SubMenu(props) {
 
-    return <div className="subMenu" id="submenu" onMouseEnter={() => props.onShowSubMenu()}>
+    return <div className="subMenu" id="submenu" onMouseLeave={() => props.onShowSubMenuOff()} >
         <ul>
             <li><a href="#home">Elvira</a></li>
             <li><a href="#news">Janis</a></li>

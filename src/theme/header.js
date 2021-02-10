@@ -21,8 +21,8 @@ function Header(props) {
             /></Navbar.Brand>
             <Nav>
                 <Nav.Link href="" className="links">About Us</Nav.Link>
-                <Nav.Link href="" className="links" id="collections" onMouseEnter={() => props.onShowSubMenu()} onMouseLeave={() => props.onShowSubMenu()} >Collections</Nav.Link>
-                <Nav.Link href="" className="links" >Catagories</Nav.Link>
+                <Nav.Link href="" className="links" id="collections" onMouseEnter={() => props.onShowSubMenu()} >Collections</Nav.Link>
+                <Nav.Link href="" className="links" onMouseEnter={() => props.onShowSubMenu()}>Catagories</Nav.Link>
             </Nav>
             <Form inline>
                 <FormControl type="text" id="searchBtn" placeholder="Bring Me The Search" className="mr-sm-2" />
