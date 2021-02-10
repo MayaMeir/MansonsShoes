@@ -6,6 +6,7 @@ function SubMenuCata(props) {
 
     return <div className="subMenu" id="submenu" onMouseLeave={() => props.onShowSubMenuOff()} >
         <ul>
+        <li><a href="#home">All Shoes</a></li>
             <li><a href="#home">Heels</a></li>
             <li><a href="#news">Boots</a></li>
             <li><a href="#contact">Sneakers</a></li>

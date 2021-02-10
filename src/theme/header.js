@@ -38,7 +38,7 @@ function Header(props) {
             {/* to do - change font color */}
             <div id="contactLogin">
                 <Nav.Link href="" className="links">Contact Us</Nav.Link>
-                <Nav.Link href="" className="links">Login</Nav.Link>
+                <Nav.Link href="" className="links">Login Sign Up</Nav.Link>
 
                 <div>
                 </div>
