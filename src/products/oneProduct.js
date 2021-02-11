@@ -9,14 +9,14 @@ function OneProduct(props){
 
     return <>
     <Card id="prodCard">
-    <HoverImage id="prodImg" src={props.products[0].mainPicSrc} hoverSrc={src} style={{height: '367px'}}/>
+    <HoverImage id="prodImg" src={props.product.mainPicSrc} hoverSrc={src} style={{height: '367px'}}/>
   <Card.Body>
-    <Card.Title id="cardName">{props.products[0].name}</Card.Title>
+    <Card.Title id="cardName">{props.product.name}</Card.Title>
     <Card.Text id="cardBrand">
-    {props.products[1].brand}
+    {props.product.brand}
     </Card.Text>
     <Card.Text>
-    {props.products[1].price}$
+    {props.product.price}$
     </Card.Text>
   </Card.Body>
 </Card>

@@ -8,6 +8,9 @@ import SubMenuCata from './subMenuCata.js';
 import './theme.css';
 import { useState } from 'react';
 import StorePage from '../products/storePage.js';
+import AboutPage from '../about/about.js';
+import HomePage from '../homepage/homePage.js';
+
 
 
 
@@ -66,23 +69,41 @@ function Layout(){
       },]
 
     
-  let [isVisible, setIsVisible] = useState(false);
+  let [isVisibleCollection, setIsVisibleCollection] = useState(false);
+  let [isVisibleCatagories, setIsVisibleCatagories] = useState(false);
 
-  const toggleVisible = () => {
-    setIsVisible(isVisible = true)
+
+  const toggleVisibleCollections = () => {
+    if(isVisibleCatagories){
+      toggleVisibleFalseCatagories();
+    }
+    setIsVisibleCollection(isVisibleCollection = true)
   }
 
-  const toggleVisibleFalse = () => {
-    setIsVisible(isVisible = false)
+  const toggleVisibleCatagories = () => {
+    if (isVisibleCollection){
+      toggleVisibleFalseCollection();
+    }
+    setIsVisibleCatagories(isVisibleCatagories = true)
+  }
+
+  const toggleVisibleFalseCollection = () => {
+    setIsVisibleCollection(isVisibleCollection = false)
+  }
+
+  const toggleVisibleFalseCatagories = () => {
+    setIsVisibleCatagories(isVisibleCatagories = false)
   }
 
     return <div>
-        <div className="content">
-        <Header onShowSubMenu={() => toggleVisible()}/>
-       {isVisible && <SubMenu onShowSubMenuOff={() => toggleVisibleFalse()}/>}
-        <StorePage products={products}/>
-       {/* {isVisible && <SubMenuCata onShowSubMenuOff={() => toggleVisibleFalse()}/>} */}
-      {/* <SingleProduct product={products[0]}/> */}
+        <div className="content" style={{position:"relative"}}>
+        <Header onShowSubMenuCollection={() => toggleVisibleCollections()} onShowSubMenuCatagories={() => toggleVisibleCatagories()}/>
+       {isVisibleCollection && <SubMenu onShowSubMenuOff={() => toggleVisibleFalseCollection()}/>}
+       {isVisibleCatagories && <SubMenuCata onShowSubMenuOff={() => toggleVisibleFalseCatagories()}/>}
+        {/* <StorePage products={products}/> */}
+        {/* <AboutPage /> */}
+        {/* <HomePage /> */}
+      <SingleProduct product={products[0]}/>
       </div>
         <Footer />
     </div>

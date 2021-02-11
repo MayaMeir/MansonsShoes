@@ -12,7 +12,7 @@ function SingleProduct(props) {
     }
     let starsPara = <div>{stars}</div>;
 
-    return <div><Container>
+    return <div><Container id="productPage">
     <Row>
       <Col><img
                 alt={"logo"}

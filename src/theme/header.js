@@ -21,11 +21,11 @@ function Header(props) {
             /></Navbar.Brand>
             <Nav>
                 <Nav.Link href="" className="links">About Us</Nav.Link>
-                <Nav.Link href="" className="links" id="collections" onMouseEnter={() => props.onShowSubMenu()} >Collections</Nav.Link>
-                <Nav.Link href="" className="links" onMouseEnter={() => props.onShowSubMenu()}>Catagories</Nav.Link>
+                <Nav.Link href="" className="links" id="collections" onMouseEnter={() => props.onShowSubMenuCollection()} >Collections</Nav.Link>
+                <Nav.Link href="" className="links" onMouseEnter={() => props.onShowSubMenuCatagories()}>Catagories</Nav.Link>
             </Nav>
             <Form inline>
-                <FormControl type="text" id="searchBtn" placeholder="Bring Me The Search" className="mr-sm-2" />
+                <FormControl type="text" id="searchBtn" placeholder="Search" className="mr-sm-2" />
                 <Nav.Link href="" >
                     <FontAwesomeIcon style={{ color: "white" }} icon={faSearch} />
                 </Nav.Link>
