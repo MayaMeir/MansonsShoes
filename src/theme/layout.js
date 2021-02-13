@@ -102,8 +102,8 @@ function Layout(){
        {isVisibleCatagories && <SubMenuCata onShowSubMenuOff={() => toggleVisibleFalseCatagories()}/>}
         {/* <StorePage products={products}/> */}
         {/* <AboutPage /> */}
-        {/* <HomePage /> */}
-      <SingleProduct product={products[0]}/>
+        <HomePage />
+      {/* <SingleProduct product={products[0]}/> */}
       </div>
         <Footer />
     </div>

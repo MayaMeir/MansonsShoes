@@ -35,14 +35,9 @@ function Header(props) {
                     <FontAwesomeIcon style={{ color: "white" }} icon={faShoppingCart} />
                 </Nav.Link>
             </div>
-            {/* to do - change font color */}
             <div id="contactLogin">
-                <Nav.Link href="" className="links">Contact Us</Nav.Link>
-                <Nav.Link href="" className="links">Login Sign Up</Nav.Link>
-
-                <div>
-                </div>
-
+                <Nav.Link href="" className="links" style={{ color: "white" }}>Contact Us</Nav.Link>
+                <Nav.Link href="" className="links" style={{ color: "white" }}>Login Sign Up</Nav.Link>
             </div>
         </Navbar>
     </header>

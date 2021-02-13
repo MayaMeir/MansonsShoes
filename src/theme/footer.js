@@ -26,10 +26,10 @@ function Footer() {
             <p style={{ color: "gray", fontSize: "18px"}}>Copyright © 2021 MayaMeir. All Rights Reserved.</p>
             </div>
             <div style={{ display: "flex", marginLeft: "auto"}}>
-                <Nav.Link href="" style={{ fontSize: "30px" }}>
+                <Nav.Link href="https://www.facebook.com/Maya.Meir483/" style={{ fontSize: "30px" }} target="_blank">
                     <FontAwesomeIcon style={{ color: "blue" }} icon={faFacebook} />
                 </Nav.Link>
-                <Nav.Link href="" id="instaLogo">
+                <Nav.Link href="https://www.instagram.com/mayameirr/" id="instaLogo" target="_blank">
                     <img
                         alt={"logo"}
                         src={ImgSrc}
