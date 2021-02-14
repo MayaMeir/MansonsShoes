@@ -12,7 +12,7 @@ function Header(props) {
 
         <Navbar variant="dark" style={{ backgroundColor: "black"}}>
 
-            <Navbar.Brand href="#home"> <img
+            <Navbar.Brand href="/"> <img
                 alt={"logo"}
                 src={ImgSrc}
                 width={"450"}
@@ -20,9 +20,9 @@ function Header(props) {
                 className={"d-inline-block align-top"}
             /></Navbar.Brand>
             <Nav>
-                <Nav.Link href="" className="links">About Us</Nav.Link>
-                <Nav.Link href="" className="links" id="collections" onMouseEnter={() => props.onShowSubMenuCollection()} >Collections</Nav.Link>
-                <Nav.Link href="" className="links" onMouseEnter={() => props.onShowSubMenuCatagories()}>Catagories</Nav.Link>
+                <Nav.Link href="/about" className="links">About Us</Nav.Link>
+                <Nav.Link href="/store" className="links" id="collections" onMouseEnter={() => props.onShowSubMenuCollection()} >Collections</Nav.Link>
+                <Nav.Link href="/store" className="links" onMouseEnter={() => props.onShowSubMenuCatagories()}>Catagories</Nav.Link>
             </Nav>
             <Form inline>
                 <FormControl type="text" id="searchBtn" placeholder="Search" className="mr-sm-2" />
@@ -36,8 +36,8 @@ function Header(props) {
                 </Nav.Link>
             </div>
             <div id="contactLogin">
-                <Nav.Link href="" className="links" style={{ color: "white" }}>Contact Us</Nav.Link>
-                <Nav.Link href="" className="links" style={{ color: "white" }}>Login Sign Up</Nav.Link>
+                <Nav.Link href="/contactUs" className="links" style={{ color: "white" }}>Contact Us</Nav.Link>
+                <Nav.Link href="/login" className="links" style={{ color: "white" }}>Login Sign Up</Nav.Link>
             </div>
         </Navbar>
     </header>

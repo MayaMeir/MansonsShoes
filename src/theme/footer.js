@@ -13,7 +13,7 @@ import './theme.css';
 function Footer() {
     return <footer>
         <Navbar variant="dark" style={{ backgroundColor: "black" }} className="footer">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
                 <img
                     alt={"logo"}
                     src={logo}
@@ -30,7 +30,8 @@ function Footer() {
                     <FontAwesomeIcon style={{ color: "blue" }} icon={faFacebook} />
                 </Nav.Link>
                 <Nav.Link href="https://www.instagram.com/mayameirr/" id="instaLogo" target="_blank">
-                    <img
+                    
+                    <img 
                         alt={"logo"}
                         src={ImgSrc}
                         width={"30"}

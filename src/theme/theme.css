@@ -1,3 +1,6 @@
+html{
+  min-height: 100%;
+}
 #instaLogo{
     margin-top: auto;
     margin-bottom: auto;
@@ -29,9 +32,7 @@
     height: 90px;
     
 }
-.content {
-    min-height: calc(100vh - 90px);
-  }
+
 /* need to fic the important! thing */
 #prodName{
     font-weight: bold;
@@ -78,6 +79,12 @@ ul {
     height: 535px;
 
   }
+  nav.footer.navbar.navbar-expand.navbar-dark {
+    width: 100%;
+    position: absolute;
+    clear: both;
+    bottom: 0;
+}
 
   #cardName{
       font-size: 30px;

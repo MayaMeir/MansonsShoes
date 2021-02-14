@@ -6,11 +6,11 @@ function SubMenu(props) {
 
     return <div className="subMenu" id="submenu" onMouseLeave={() => props.onShowSubMenuOff()} >
         <ul>
-            <li><a href="#home">Elvira</a></li>
-            <li><a href="#news">Janis</a></li>
-            <li><a href="#contact">Kurt</a></li>
-            <li><a href="#about">Billy</a></li>
-            <li><a href="#about">Crystal</a></li>
+            <li><a href="/store">Elvira</a></li>
+            <li><a href="/store">Janis</a></li>
+            <li><a href="/store">Kurt</a></li>
+            <li><a href="/store">Billy</a></li>
+            <li><a href="/store">Crystal</a></li>
         </ul>
     </div>
 
