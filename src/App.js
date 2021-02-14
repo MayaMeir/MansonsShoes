@@ -15,6 +15,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import Contact from './contact/contact';
 import Login from './login_signup/login';
 import SignUp from './login_signup/signup';
+import Cart from './cart/cart';
 
 function App() {
   const products = [{
@@ -113,6 +114,8 @@ setIsVisibleCatagories(isVisibleCatagories = false)
       <Route exact path="/contactUs" component={Contact} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={SignUp} />
+      <Route exact path="/cart" component={Cart} />
+
 
 
 

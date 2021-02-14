@@ -31,7 +31,7 @@ function Header(props) {
                 </Nav.Link>
             </Form>
             <div style={{ display: "flex", marginLeft: "auto" }}>
-                <Nav.Link href="cart" >
+                <Nav.Link href="/cart" >
                     <FontAwesomeIcon style={{ color: "white" }} icon={faShoppingCart} />
                 </Nav.Link>
             </div>
