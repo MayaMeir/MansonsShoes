@@ -83,7 +83,7 @@ ul {
     width: 100%;
     position: absolute;
     clear: both;
-    bottom: 0;
+    bottom: calc(11vh - 90px);
 }
 
   #cardName{
@@ -105,4 +105,17 @@ ul {
   top: 111px;
   width: 100%;
   z-index:1000;
+}
+
+
+html{
+  position: relative;
+}
+
+#compo{
+  margin-bottom: 150px;
+}
+
+#prodImg{
+  height: 367px;
 }

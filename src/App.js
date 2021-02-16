@@ -16,6 +16,7 @@ import Contact from './contact/contact';
 import Login from './login_signup/login';
 import SignUp from './login_signup/signup';
 import Cart from './cart/cart';
+import Checkout from './checkout/checkout';
 
 function App() {
   const products = [{
@@ -106,7 +107,7 @@ setIsVisibleCatagories(isVisibleCatagories = false)
       </div>
       {/* ROUTING */}
       <Router>
-    <div>
+    <div id="compo">
       <Route exact path="/" component={HomePage} />
       <Route exact path="/about" component={AboutPage} />
       <Route exact path="/store" component={() => <StorePage products={products} />} />
@@ -114,10 +115,8 @@ setIsVisibleCatagories(isVisibleCatagories = false)
       <Route exact path="/contactUs" component={Contact} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={SignUp} />
-      <Route exact path="/cart" component={Cart} />
-
-
-
+      <Route exact path="/cart" component={() => <Cart products={products} />} />
+      <Route exact path="/checkout" component={Checkout} />
 
     </div>
   </Router>

@@ -5,12 +5,10 @@ import {Card } from 'react-bootstrap';
 import src from './productPics/smilyBoots/0TNAnKFNOQEvHcxzOc9UZHGjKeZHtJQu-33.jpg';
 import {LinkContainer} from 'react-router-bootstrap';
 
-
 function OneProduct(props){
-
     return <>
     <Card id="prodCard">
-      <LinkContainer to={'/product'}>
+      <LinkContainer to={'/product'}style={{height: '367px'}}>
     <HoverImage id="prodImg" src={props.product.mainPicSrc} hoverSrc={src} style={{height: '367px'}}/>
     </LinkContainer>
   <Card.Body>

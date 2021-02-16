@@ -1,12 +1,42 @@
 import React from 'react';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import CartCard from './cartcard';
+import './cart.css';
+
+function Cart(props) {
+    function RemoveItem(index) {
+        props.products.splice(index, 1);
+    }
+    let sum=0;
+    for (let product of props.products){
+        sum +=parseInt(product.price)
+    }
 
 
-function Cart(){
-
-
-    return <>
-    <h1>Cart Page - Under Construction</h1>
-    </>
+    return <div>
+        <Container style={{marginTop:"15px"}}>
+            <Row>
+                <h1>Soon To Be Yours</h1>
+            </Row>
+            <Row>
+                <Col xs="8">
+                    {props.products.map((element, index) => {
+                        return <CartCard product={element} key={index} index={index} onRemoveItem={RemoveItem} />
+                    })}
+                </Col>
+                <Col xs="4">
+                    <div id="cartDetails">
+                    <h1>Order Summery</h1>
+                    <h4>Number Of Items: {props.products.length}</h4>    
+                    <h4>Total Amount: {sum}$</h4>  
+                    <Button variant="outline-dark" id="checkoutBtn" href="./checkout">Continue To Checkout</Button>
+  
+                    </div>
+                    </Col>
+            </Row>
+        </Container>
+    </div>
 }
+
 
 export default Cart;
