@@ -2,11 +2,13 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import pic from './poster.png';
 import './about.css';
+import bg from './bg.jpg';
 
 
 function AboutPage() {
 
     return <div id="aboutPage">
+        <img src={bg} alt="bg" id="bg"/>
 
         <Container>
             <Row id="row">
@@ -20,7 +22,7 @@ function AboutPage() {
                 alt={"poster"}
                 src={pic}
                 width= "370px"
-                style={{marginBottom: "10px", marginTop: "10px"}}
+                style={{marginBottom: "10px", marginTop: "10px", marginLeft:"60px"}}
 
             /></Col>
             </Row>

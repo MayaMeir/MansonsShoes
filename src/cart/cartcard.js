@@ -18,7 +18,7 @@ function CartCard(props){
             </p>
             <p className="card-text">
               <small className="text-muted">{props.product.price}$</small>
-              <Button variant="dark" style={{float:"right"}} onClick={props.onRemoveItem(props.index)}>Remove</Button>
+              <Button variant="dark" style={{float:"right"}} onClick={ () => props.onRemoveItem(props.index)}>Remove</Button>
             </p>
           </div>
         </div>
