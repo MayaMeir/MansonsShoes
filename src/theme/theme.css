@@ -25,9 +25,10 @@ html{
       color: white;
 }
 
-.form-control::placeholder{
+#searchBtn::placeholder{
     color: rgba(255, 255, 255, 0.712) !important;
 }
+
 #footer{
     height: 90px;
     
