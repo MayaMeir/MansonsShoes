@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import CartCard from './cartcard';
 import './cart.css';
 
 function Cart(props) {
+
+    let [prods, updateProds] = useState(props.products);
+
+
     function RemoveItem(index) {
-        props.products.splice(index, 1);
-    }
+       prods.splice(index, 1);
+       console.log(index);
+        updateProds(prods);
+    }   
+
     let sum=0;
     for (let product of props.products){
         sum +=parseInt(product.price)
