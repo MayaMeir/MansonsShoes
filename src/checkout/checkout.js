@@ -2,15 +2,19 @@ import React from 'react';
 import './checkout.css';
 import {Button , Form, Row, Col, Container,InputGroup, FormControl } from 'react-bootstrap';
 
-function Checkout(){
-
+function Checkout(props){
+let sum = 0;
+const shipping = 20;
+for (let product of props.products){
+    sum += parseInt(product.price)
+}
 
     return <>
     <Container>
 
 
   <Row>
-    <Col>
+    <Col xs="6">
     <Form style={{width:"85%", textAlign:"left", marginTop:"20px"}} id="checkoutForm">
   <Form.Row>
     <Form.Group as={Col} controlId="formGridName">
@@ -47,12 +51,18 @@ function Checkout(){
     </Form.Group>
   </Form.Row>
 
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
+  <Button variant="outline-dark" block id="btn">Submit</Button>
+
 </Form>
     </Col>
-    <Col>קומפוננטת מיני קארט שעושה סהכ הזמנה. לחיצה על סאבמיט מעבירה לעמוד תשלום</Col>
+    <Col xs="3">
+    <div id="priceWithShipping">
+    <h3>Order: {sum}$</h3> 
+     <h3>Shipping: {shipping}$</h3> 
+     <h2>Overall Amount: {sum + shipping}$</h2> 
+
+      </div>
+      </Col>
   </Row> 
 </Container>
     </>

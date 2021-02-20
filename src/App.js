@@ -116,7 +116,7 @@ setIsVisibleCatagories(isVisibleCatagories = false)
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/cart" component={() => <Cart products={products} />} />
-      <Route exact path="/checkout" component={Checkout} />
+      <Route exact path="/checkout" component={() => <Checkout products={products} />} />
 
     </div>
   </Router>
