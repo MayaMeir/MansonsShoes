@@ -2,3 +2,14 @@
 .form-control::placeholder{
     color: rgba(29, 28, 28, 0.897) !important;
 }
+
+#checkoutForm{
+    width:85%;
+     text-align:left;
+      margin-top:20px;
+      font-size: 24px;
+}
+
+.form-control{
+    font-size: 21px;
+}

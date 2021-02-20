@@ -11,7 +11,7 @@ function Checkout(){
 
   <Row>
     <Col>
-    <Form style={{width:"85%", textAlign:"left"}}>
+    <Form style={{width:"85%", textAlign:"left", marginTop:"20px"}} id="checkoutForm">
   <Form.Row>
     <Form.Group as={Col} controlId="formGridName">
       <Form.Control type="text" placeholder="First Name" />
@@ -47,16 +47,12 @@ function Checkout(){
     </Form.Group>
   </Form.Row>
 
-  <Form.Group id="formGridCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-
   <Button variant="primary" type="submit">
     Submit
   </Button>
 </Form>
     </Col>
-    <Col>2 of 2</Col>
+    <Col>קומפוננטת מיני קארט שעושה סהכ הזמנה. לחיצה על סאבמיט מעבירה לעמוד תשלום</Col>
   </Row> 
 </Container>
     </>
