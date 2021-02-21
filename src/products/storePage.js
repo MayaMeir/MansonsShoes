@@ -6,9 +6,8 @@ import '../theme/theme.css';
 
 function StorePage(props) {
 
-  let array = props.products;
-    let [prods, setSortProds] = useState(array);
-
+    let [prods, setSortProds] = useState(props.products);
+    let [sortVal, setSortVal] = useState('initial');
     function ascend(){
       const sortedProds = prods.sort(function(a, b){return a.price - b.price})
       setSortProds([...sortedProds]);
@@ -16,12 +15,12 @@ function StorePage(props) {
   }
 
   function desc(){
-    const sortedProds = prods.sort(function(a, b){return b.price - a.price})
-    setSortProds([...sortedProds]);
+    const sortedProdsDesc = prods.sort(function(a, b){return b.price - a.price})
+    setSortProds([...sortedProdsDesc]);
 
   }
   const handleChanges = (selectedItem) => {
-    console.log(selectedItem.target.value);
+    setSortVal(selectedItem.target.value);
     if (selectedItem.target.value == 'Price High To Low'){
       desc();
     }
@@ -42,10 +41,10 @@ function StorePage(props) {
                 <Col xs={4}></Col>
                 <Col xs={3}><Form style={{width:"150px", fontSize:"16px"}}>
   <Form.Group controlId="exampleForm.SelectCustom">
-    <Form.Control onChange={handleChanges} as="select" custom>
-      <option>Top Rated</option>
-      <option>Price High To Low</option>
-      <option>Price Low To High</option>
+    <Form.Control onChange={handleChanges} value={sortVal} as="select" custom>
+      <option value="initial">Top Rated</option>
+      <option value="Price High To Low">Price High To Low</option>
+      <option value="Price Low To High">Price Low To High</option>
 
     </Form.Control>
   </Form.Group>
