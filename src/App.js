@@ -17,6 +17,7 @@ import Login from './login_signup/login';
 import SignUp from './login_signup/signup';
 import Cart from './cart/cart';
 import Checkout from './checkout/checkout';
+import ShowFeed from './instagram/instagram';
 
 function App() {
   const products = [{
@@ -117,6 +118,7 @@ setIsVisibleCatagories(isVisibleCatagories = false)
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/cart" component={() => <Cart products={products} />} />
       <Route exact path="/checkout" component={() => <Checkout products={products} />} />
+      <Route exact path="/feed" component={ShowFeed} />
 
     </div>
   </Router>

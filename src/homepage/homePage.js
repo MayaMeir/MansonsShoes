@@ -20,7 +20,7 @@ function HomePage(){
                 alt="Banner"
                 src={Banner}
                 width="95%"
-                style={{marginTop:"10px", marginBottom:"10px"}}
+                style={{ marginBottom:"10px"}}
 
             /></LinkContainer>
     </div>

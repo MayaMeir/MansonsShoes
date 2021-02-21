@@ -21,6 +21,7 @@ function Header(props) {
             /></Navbar.Brand>
             <Nav>
                 <Nav.Link href="/about" className="links">About Us</Nav.Link>
+                <Nav.Link href="/feed" className="links">Pics!</Nav.Link>
                 <Nav.Link href="/store" className="links" id="collections" onMouseEnter={() => props.onShowSubMenuCollection()} >Collections</Nav.Link>
                 <Nav.Link href="/store" className="links" onMouseEnter={() => props.onShowSubMenuCatagories()}>Catagories</Nav.Link>
             </Nav>
