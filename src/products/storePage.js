@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import OneProduct from './oneProduct';
 import { Container, Col, Row, Form } from 'react-bootstrap';
 
@@ -19,6 +19,8 @@ function StorePage(props) {
     setSortProds([...sortedProdsDesc]);
 
   }
+
+
   const handleChanges = (selectedItem) => {
     setSortVal(selectedItem.target.value);
     if (selectedItem.target.value == 'Price High To Low'){
@@ -32,9 +34,7 @@ function StorePage(props) {
 
     return <>
         <Container>
-           { props.products.map((element, index) => {
-               <Col xs={3}><OneProduct product={element} /></Col>
-           })}
+
         <Row style={{marginTop:"7px"}}>
                 
                 <Col xs={4}><h2>Current Catagory/Collection</h2></Col>
@@ -51,8 +51,8 @@ function StorePage(props) {
 </Form></Col>
             </Row>
             <Row>
-            { props.products.map((element, index) => {
-              return <Col xs={3} key={index}><OneProduct product={element} /></Col>
+            { prods.map((element, index) => {
+              return <Col xs={3} key={index}><OneProduct product={element}  /></Col>
            })}
             </Row>
         </Container>
