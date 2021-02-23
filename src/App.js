@@ -18,8 +18,28 @@ import SignUp from './login_signup/signup';
 import Cart from './cart/cart';
 import Checkout from './checkout/checkout';
 import ShowFeed from './instagram/instagram';
+import AdminPage from './admin/admin';
 
 function App() {
+
+  const order=[{
+    orderId: 1,
+    numOfProducts: 2,
+    productsNames: ["BASSIANI SMILEY FACE PLATFORM BOOTS", "PURE GRAVEDIGGER BOOTS"],
+    productsId:[1,2],
+    orderDate: new Date(),
+    customerId: 1
+  },
+  {
+    orderId: 1,
+    numOfProducts: 2,
+    productsNames: ["BASSIANI SMILEY FACE PLATFORM BOOTS", "PURE GRAVEDIGGER BOOTS"],
+    productsId:[1,2],
+    orderDate: new Date(),
+    customerId: 1
+  }]
+
+
   const products = [{
     id: 1,
     name: "BASSIANI SMILEY FACE PLATFORM BOOTS",
@@ -38,9 +58,9 @@ function App() {
     mainPicSrc: SmileyPic,
     description: "Demonia Pure Gravedigger Boots cuz you’re a total badazz. Look dope AF in these unisex combat boots that have treaded platform soles, metal toe caps, adjustable lace-ups, and back zip closures.",
     brand: "Demonia",
-    collection: "Kurt",
-    catagory: "Boots",
-    rating: 5
+    collection: "Elvira",
+    catagory: "Heels",
+    rating: 2
   },{
     id: 3,
     name: "BASSIANI SMILEY FACE PLATFORM BOOTS",
@@ -48,9 +68,9 @@ function App() {
     mainPicSrc: SmileyPic,
     description: "Koi Footwear Bassiani Smiley Face Platform Boots cuz you’re the highlight of their lives! These lace-up platform boots have contrast yellow detailing, zipper hardware with smiley face charms, and chunky cleated soles.",
     brand: "Koi Footwear",
-    collection: "Kurt",
-    catagory: "Boots",
-    rating: 5
+    collection: "Janis",
+    catagory: "Sneakers",
+    rating: 1
   },{
     id: 4,
     name: "BASSIANI SMILEY FACE PLATFORM BOOTS",
@@ -58,9 +78,9 @@ function App() {
     mainPicSrc: SmileyPic,
     description: "Koi Footwear Bassiani Smiley Face Platform Boots cuz you’re the highlight of their lives! These lace-up platform boots have contrast yellow detailing, zipper hardware with smiley face charms, and chunky cleated soles.",
     brand: "Koi Footwear",
-    collection: "Kurt",
-    catagory: "Boots",
-    rating: 5
+    collection: "Billy",
+    catagory: "Flats",
+    rating: 4
   },{
     id: 5,
     name: "BASSIANI SMILEY FACE PLATFORM BOOTS",
@@ -68,8 +88,8 @@ function App() {
     mainPicSrc: SmileyPic,
     description: "Koi Footwear Bassiani Smiley Face Platform Boots cuz you’re the highlight of their lives! These lace-up platform boots have contrast yellow detailing, zipper hardware with smiley face charms, and chunky cleated soles.",
     brand: "Koi Footwear",
-    collection: "Kurt",
-    catagory: "Boots",
+    collection: "Crystal",
+    catagory: "Platforms",
     rating: 5
   },]
 
@@ -119,6 +139,7 @@ setIsVisibleCatagories(isVisibleCatagories = false)
       <Route exact path="/cart" component={() => <Cart products={products} />} />
       <Route exact path="/checkout" component={() => <Checkout products={products} />} />
       <Route exact path="/feed" component={ShowFeed} />
+      <Route exact path="/admin" component={() => <AdminPage order={order} />} />
 
     </div>
   </Router>
