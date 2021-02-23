@@ -8,7 +8,7 @@ function AdminPage(props){
     return <div>
         <h1>Admin Interface</h1>
         <Table striped bordered hover variant="dark" id="orders">
-  <thead>
+  <thead style={{fontWeight: "300"}}>
     <tr>
       <th>Order Id</th>
       <th>Customer ID</th>

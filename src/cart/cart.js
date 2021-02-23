@@ -6,7 +6,7 @@ import './cart.css';
 function Cart(props) {
 
     let [prods, updateProds] = useState(props.products);
-let initialPrice =0;
+    let initialPrice =0;
     for (let prod of prods){
         initialPrice+= parseInt(prod.price);
     }
@@ -16,7 +16,7 @@ let initialPrice =0;
         updateProds(prods.filter(product => product.id != id));
         for (let prod of prods){
             if (prod.id == id){
-                updateSum(initialPrice-prod.price)
+                updateSum(initialPrice-prod.price);
             }
         }
     };
