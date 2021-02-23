@@ -15,3 +15,12 @@
     font-weight: bold;
     font-size: 18px;
 }
+
+#quantity{
+    width: 100px;
+}
+
+.quanSelectors{
+    width: 40px;
+    padding: 0;
+}

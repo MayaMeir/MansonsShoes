@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 import HoverImage from "react-hover-image";
 import src from '../products/productPics/smilyBoots/0TNAnKFNOQEvHcxzOc9UZHGjKeZHtJQu-33.jpg';
-
+import './cart.css';
 
 function CartCard(props) {
 
@@ -27,9 +27,9 @@ function CartCard(props) {
             <h2 className="card-title">{props.product.name}</h2>
             <div className="card-text">
               <ButtonGroup aria-label="Basic example" id="quantity">
-                <Button variant="secondary" onClick={remove}>-1</Button>
-                <Button variant="secondary" disabled>{counter}</Button>
-                <Button variant="secondary" onClick={add}>+1</Button>
+                <Button variant="secondary" onClick={remove} className="quanSelectors">-1</Button>
+                <Button variant="secondary" disabled className="quanSelectors">{counter}</Button>
+                <Button variant="secondary" onClick={add} className="quanSelectors">+1</Button>
               </ButtonGroup>
             </div>
             <p className="card-text">
