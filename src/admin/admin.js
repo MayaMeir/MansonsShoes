@@ -1,14 +1,13 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import Row from './tableRow';
-
+import './admin.css';
 function AdminPage(props){
 
-    const date = props.order.orderDate;
 
     return <div>
         <h1>Admin Interface</h1>
-        <Table striped bordered hover variant="dark">
+        <Table striped bordered hover variant="dark" id="orders">
   <thead>
     <tr>
       <th>Order Id</th>
@@ -23,7 +22,7 @@ function AdminPage(props){
   {props.order.map((element, index) => {
           return <Row order={element} />
         })}
-          </tbody>
+ </tbody>
 </Table>
     </div>
 }

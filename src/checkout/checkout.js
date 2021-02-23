@@ -11,8 +11,6 @@ for (let product of props.products){
 
     return <>
     <Container>
-
-
   <Row>
     <Col xs="6">
     <Form style={{width:"85%", textAlign:"left", marginTop:"20px"}} id="checkoutForm">

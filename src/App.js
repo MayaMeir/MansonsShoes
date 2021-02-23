@@ -31,10 +31,10 @@ function App() {
     customerId: 1
   },
   {
-    orderId: 1,
-    numOfProducts: 2,
-    productsNames: ["BASSIANI SMILEY FACE PLATFORM BOOTS", "PURE GRAVEDIGGER BOOTS"],
-    productsId:[1,2],
+    orderId: 2,
+    numOfProducts: 1,
+    productsNames: ["BASSIANI SMILEY FACE PLATFORM BOOTS"],
+    productsId:[2],
     orderDate: new Date(),
     customerId: 1
   }]

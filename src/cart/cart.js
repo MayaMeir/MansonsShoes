@@ -6,19 +6,23 @@ import './cart.css';
 function Cart(props) {
 
     let [prods, updateProds] = useState(props.products);
-
-
-    function RemoveItem(index) {
-       prods.splice(index, 1);
-       console.log(index);
-        updateProds(prods);
-    }   
-
-    let sum=0;
-    for (let product of props.products){
-        sum +=parseInt(product.price)
+let initialPrice =0;
+    for (let prod of prods){
+        initialPrice+= parseInt(prod.price);
     }
+    let [sum, updateSum] = useState(initialPrice);
 
+    const RemoveItem = (id) =>{
+        updateProds(prods.filter(product => product.id != id));
+        for (let prod of prods){
+            if (prod.id == id){
+                updateSum(initialPrice-prod.price)
+            }
+        }
+    };
+    
+
+    
 
     return <div>
         <Container style={{marginTop:"15px"}}>
@@ -27,14 +31,14 @@ function Cart(props) {
             </Row>
             <Row>
                 <Col xs="8">
-                    {props.products.map((element, index) => {
+                    {prods.map((element, index) => {
                         return <CartCard product={element} key={index} index={index} onRemoveItem={RemoveItem} />
                     })}
                 </Col>
                 <Col xs="4">
                     <div id="cartDetails">
                     <h1>Order Summery</h1>
-                    <h4>Number Of Items: {props.products.length}</h4>    
+                    <h4>Number Of Items: {prods.length}</h4>    
                     <h4>Total Amount: {sum}$</h4>  
                     <Button variant="outline-dark" id="checkoutBtn" href="./checkout">Continue To Checkout</Button>
   

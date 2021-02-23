@@ -9,8 +9,8 @@ function Row(props){
       <td>{props.order.orderId}</td>
       <td>{props.order.customerId}</td>
       <td>{props.order.numOfProducts}</td>
-      <td>{props.order.productsNames}</td>
-      <td>{props.order.productsId}</td>
+      <td>{props.order.productsNames.join(", ")}</td>
+      <td>{props.order.productsId.join(", ")}</td>
       <td>{date.toUTCString()}</td>
 
     </tr>
