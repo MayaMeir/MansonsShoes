@@ -22,8 +22,6 @@ function Cart(props) {
     };
     
 
-    
-
     return <div>
         <Container style={{marginTop:"15px"}}>
             <Row>

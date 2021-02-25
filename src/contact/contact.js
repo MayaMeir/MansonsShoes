@@ -2,7 +2,12 @@ import React from 'react';
 import bg from './gossip.jpg';
 import './contact.css';
 import { Form, Button, Row, Col } from 'react-bootstrap';
+import { useForm } from "react-hook-form";
+
 function Contact(){
+
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = data => console.log(data);
 
     return <>
             <img src={bg} alt="bg" id="bg"/>
@@ -15,20 +20,26 @@ function Contact(){
     </Col>
     <Col>
     <div>
-    <Form id="contact-form" >
+    <Form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" name="fullName" ref={register({ required: true })}/>
+            {errors.fullName && <span style={{color:"red"}}>Must enter your name hun :)</span>}
+
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Email address</label>
-            <input type="email" className="form-control" aria-describedby="emailHelp"  />
+            <input type="text" className="form-control" aria-describedby="emailHelp" name="email" ref={register({ required: true, pattern: /^\S+@\S+$/i })}/>
+            {errors.email && <span style={{color:"red"}}>Email Must Be Valid!</span>}
+
           </div>
           <div className="form-group">
             <label htmlFor="message">Message</label>
-            <textarea className="form-control" rows="5"  />
+            <textarea className="form-control" rows="5" name="msg" ref={register({ required: true })} />
+            {errors.msg && <span style={{color:"red"}}>What's on your mind?</span>}
+
           </div>
-          <Button variant="outline-dark" id="btn">Let's Talk!</Button>
+          <Button type="submit" variant="outline-dark" id="btn">Let's Talk!</Button>
 
         </Form>
     </div></Col>

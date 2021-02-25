@@ -25,3 +25,8 @@
     margin-left: 150px;
     margin-top: 70px;
 }
+
+.form-group {
+    display: flex;
+    flex-direction: row-reverse;
+}
