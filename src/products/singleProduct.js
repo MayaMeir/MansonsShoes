@@ -3,11 +3,21 @@ import {Container, Col, Row, Form, Button } from 'react-bootstrap';
 import '../theme/theme.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { useParams } from 'react-router-dom';
 
 function SingleProduct(props) {
     let stars = [];
+    let {id}=useParams();
+  
+    let products = props.products;
+    console.log(products);
 
-    for (let i = 0; i < props.product.rating; i++) {
+   const product = products.find((item) => {
+      return item.id == parseInt(id);
+    })
+
+    console.log(product);
+    for (let i = 0; i < product.rating; i++) {
         stars.push( <FontAwesomeIcon  key={i} style={{ color: "yellow" }} icon={faStar} />);
     }
     let starsPara = <div>{stars}</div>;
@@ -16,7 +26,7 @@ function SingleProduct(props) {
     <Row>
       <Col><img
                 alt={"logo"}
-                src={props.product.mainPicSrc}
+                src={product.mainPicSrc}
                 width= "200px"
                 style={{marginBottom: "10px"}}
 
@@ -24,14 +34,14 @@ function SingleProduct(props) {
             
             <img
                 alt={"logo"}
-                src={props.product.mainPicSrc}
+                src={product.mainPicSrc}
                 width= "200px"
                 style={{marginBottom: "10px"}}
 
             />
             <img
                 alt={"logo"}
-                src={props.product.mainPicSrc}
+                src={product.mainPicSrc}
                 width= "200px"
                 style={{marginBottom: "10px"}}
 
@@ -39,14 +49,14 @@ function SingleProduct(props) {
       <Col xs={6}>
       <img
                 alt={"logo"}
-                src={props.product.mainPicSrc}
+                src={product.mainPicSrc}
                 width= "450px"
 
             /> </Col>
       <Col id="details">
-      <p id="prodName">{props.product.name}</p>
-      <p id="prodName">{props.product.price}$</p>
-      <p id="prodDescription">{props.product.description}</p>
+      <p id="prodName">{product.name}</p>
+      <p id="prodName">{product.price}$</p>
+      <p id="prodDescription">{product.description}</p>
       <div id="rating">
         {starsPara}
       </div>

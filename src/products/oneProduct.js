@@ -8,7 +8,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 function OneProduct(props){
     return <>
     <Card id="prodCard">
-      <LinkContainer to={'/product'}style={{height: '367px'}}>
+      <LinkContainer to={`/product/${props.product.id}`}style={{height: '367px', cursor: "pointer"}}>
     <HoverImage id="prodImg" src={props.product.mainPicSrc} hoverSrc={src} style={{height: '367px'}}/>
     </LinkContainer>
   <Card.Body>

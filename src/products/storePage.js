@@ -30,9 +30,11 @@ function StorePage(props) {
   function desc() {
     const sortedProdsDesc = prods.sort(function (a, b) { return b.price - a.price })
     setSortProds([...sortedProdsDesc]);
-
   }
-
+  function topRating() {
+    const sortedProdsDesc = prods.sort(function (a, b) { return b.rating - a.rating })
+    setSortProds([...sortedProdsDesc]);
+  }
 
   const handleChanges = (selectedItem) => {
     setSortVal(selectedItem.target.value);
@@ -43,8 +45,11 @@ function StorePage(props) {
     if (selectedItem.target.value == 'Price Low To High') {
       ascend();
     }
+    if (selectedItem.target.value == 'Top Rated') {
+      topRating();
+    }
   }
-  
+
   let displayFilter = filter[0].toUpperCase() +  filter.slice(1); 
 
 
@@ -62,7 +67,7 @@ function StorePage(props) {
         <Col xs={3}><Form style={{ width: "150px", fontSize: "16px" }}>
           <Form.Group controlId="exampleForm.SelectCustom">
             <Form.Control onChange={handleChanges} value={sortVal} as="select" custom>
-              <option value="initial">Top Rated</option>
+              <option value="Top Rated">Top Rated</option>
               <option value="Price High To Low">Price High To Low</option>
               <option value="Price Low To High">Price Low To High</option>
 

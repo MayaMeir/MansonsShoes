@@ -135,7 +135,7 @@ setIsVisibleCatagories(isVisibleCatagories = false)
       <Route exact path="/" component={HomePage} />
       <Route exact path="/about" component={AboutPage} />
       <Route exact path="/store/:filter" component={() => <StorePage products={products} />} />
-      <Route exact path="/product" component={() => <SingleProduct product={products[0]} />} />
+      <Route exact path="/product/:id" component={() => <SingleProduct products={products} />} />
       <Route exact path="/contactUs" component={Contact} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={SignUp} />
