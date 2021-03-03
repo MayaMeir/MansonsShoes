@@ -51,7 +51,7 @@ function SingleProduct(props) {
         {starsPara}
       </div>
     <div>
-    <Form>
+    <Form id="sizeForm">
   <Form.Group controlId="exampleForm.SelectCustom">
     <Form.Label>Choose Your Size</Form.Label>
     <Form.Control as="select" defaultValue="Choose...">

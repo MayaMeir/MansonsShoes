@@ -3,15 +3,28 @@ import OneProduct from './oneProduct';
 import { Container, Col, Row, Form, Breadcrumb } from 'react-bootstrap';
 
 import '../theme/theme.css';
+import { useParams } from 'react-router-dom';
 
 function StorePage(props) {
 
-  let [prods, setSortProds] = useState(props.products);
+  let {filter}=useParams();
+  
+  let products = props.products;
+
+  if (filter) {
+  products = products.filter((item) => {
+      return (item.collection == filter || item.catagory == filter);
+    })
+  }
+  if (filter == 'all'){
+    products = props.products;
+  }
+
+  let [prods, setSortProds] = useState(products);
   let [sortVal, setSortVal] = useState('initial');
   function ascend() {
     const sortedProds = prods.sort(function (a, b) { return a.price - b.price })
     setSortProds([...sortedProds]);
-
   }
 
   function desc() {
@@ -31,6 +44,9 @@ function StorePage(props) {
       ascend();
     }
   }
+  
+  let displayFilter = filter[0].toUpperCase() +  filter.slice(1); 
+
 
   return <>
     <Container>
@@ -38,13 +54,8 @@ function StorePage(props) {
       <Row style={{ marginTop: "7px", height: "50px" }}>
 
         <Col xs={4} >
-          <div style={{ height: "50px", verticalAlign: "middle" }}>
-            <Breadcrumb style={{ height: "50px" }}>
-              <Breadcrumb.Item href="/Store"  style={{ height: "50px" }}>All Products</Breadcrumb.Item>
-              <Breadcrumb.Item href="#" style={{ height: "50px" }}>
-                Current
-               </Breadcrumb.Item>
-            </Breadcrumb>
+          <div style={{ height: "50px", verticalAlign: "middle" , textAlign:"left"}}>
+            <h2>{displayFilter}</h2>
           </div>
         </Col>
         <Col xs={4}></Col>

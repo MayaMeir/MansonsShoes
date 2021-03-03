@@ -19,6 +19,7 @@ import Cart from './cart/cart';
 import Checkout from './checkout/checkout';
 import ShowFeed from './instagram/instagram';
 import AdminPage from './admin/admin';
+import UserPage from './user/userPage';
 
 function App() {
 
@@ -42,54 +43,54 @@ function App() {
 
   const products = [{
     id: 1,
-    name: "BASSIANI SMILEY FACE PLATFORM BOOTS",
+    name: "KURT BOOTS",
     price: "95",
     mainPicSrc: SmileyPic,
     description: "Koi Footwear Bassiani Smiley Face Platform Boots cuz you’re the highlight of their lives! These lace-up platform boots have contrast yellow detailing, zipper hardware with smiley face charms, and chunky cleated soles.",
     brand: "Koi Footwear",
-    collection: "Kurt",
-    catagory: "Boots",
+    collection: "kurt",
+    catagory: "boots",
     rating: 5
   },
   {
     id: 2,
-    name: "PURE GRAVEDIGGER BOOTS",
+    name: "ELVIRA HEELS",
     price: "113",
     mainPicSrc: SmileyPic,
     description: "Demonia Pure Gravedigger Boots cuz you’re a total badazz. Look dope AF in these unisex combat boots that have treaded platform soles, metal toe caps, adjustable lace-ups, and back zip closures.",
     brand: "Demonia",
-    collection: "Elvira",
-    catagory: "Heels",
+    collection: "elvira",
+    catagory: "heels",
     rating: 2
   },{
     id: 3,
-    name: "BASSIANI SMILEY FACE PLATFORM BOOTS",
+    name: "janis sneakers",
     price: "95",
     mainPicSrc: SmileyPic,
     description: "Koi Footwear Bassiani Smiley Face Platform Boots cuz you’re the highlight of their lives! These lace-up platform boots have contrast yellow detailing, zipper hardware with smiley face charms, and chunky cleated soles.",
     brand: "Koi Footwear",
-    collection: "Janis",
-    catagory: "Sneakers",
+    collection: "janis",
+    catagory: "sneakers",
     rating: 1
   },{
     id: 4,
-    name: "BASSIANI SMILEY FACE PLATFORM BOOTS",
+    name: "billy flats",
     price: "95",
     mainPicSrc: SmileyPic,
     description: "Koi Footwear Bassiani Smiley Face Platform Boots cuz you’re the highlight of their lives! These lace-up platform boots have contrast yellow detailing, zipper hardware with smiley face charms, and chunky cleated soles.",
     brand: "Koi Footwear",
-    collection: "Billy",
-    catagory: "Flats",
+    collection: "billy",
+    catagory: "flats",
     rating: 4
   },{
     id: 5,
-    name: "BASSIANI SMILEY FACE PLATFORM BOOTS",
+    name: "crystal platforms",
     price: "95",
     mainPicSrc: SmileyPic,
     description: "Koi Footwear Bassiani Smiley Face Platform Boots cuz you’re the highlight of their lives! These lace-up platform boots have contrast yellow detailing, zipper hardware with smiley face charms, and chunky cleated soles.",
     brand: "Koi Footwear",
-    collection: "Crystal",
-    catagory: "Platforms",
+    collection: "crystal",
+    catagory: "platforms",
     rating: 5
   },]
 
@@ -119,6 +120,8 @@ setIsVisibleCollection(isVisibleCollection = false)
 const toggleVisibleFalseCatagories = () => {
 setIsVisibleCatagories(isVisibleCatagories = false)
 }
+
+
   return (
     <div className="App">
       <div className="content" style={{position:"relative"}}>
@@ -131,7 +134,7 @@ setIsVisibleCatagories(isVisibleCatagories = false)
     <div id="compo">
       <Route exact path="/" component={HomePage} />
       <Route exact path="/about" component={AboutPage} />
-      <Route exact path="/store" component={() => <StorePage products={products} />} />
+      <Route exact path="/store/:filter" component={() => <StorePage products={products} />} />
       <Route exact path="/product" component={() => <SingleProduct product={products[0]} />} />
       <Route exact path="/contactUs" component={Contact} />
       <Route exact path="/login" component={Login} />
@@ -140,6 +143,7 @@ setIsVisibleCatagories(isVisibleCatagories = false)
       <Route exact path="/checkout" component={() => <Checkout products={products} />} />
       <Route exact path="/feed" component={ShowFeed} />
       <Route exact path="/admin" component={() => <AdminPage order={order} />} />
+      <Route exact path="/userPage" component={() => <UserPage order={order} />} />
 
     </div>
   </Router>

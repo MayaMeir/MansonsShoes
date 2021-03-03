@@ -16,7 +16,7 @@ function SignUp(){
                 <div className="form-group">
                     <label>First name</label>
                     <input type="text" name="firstName" className="form-control" placeholder="First name" ref={register({required: true, maxLength: 20})}/>
-                    {errors.firstName && <span style={{color:"red"}}>Please enter yout name</span>}
+                    {errors.firstName && <span style={{color:"red"}}>Please enter your name</span>}
 
                 </div>
 

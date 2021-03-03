@@ -22,8 +22,8 @@ function Header(props) {
             <Nav>
                 <Nav.Link href="/about" className="links">About Us</Nav.Link>
                 <Nav.Link href="/feed" className="links">Pics!</Nav.Link>
-                <Nav.Link href="/store" className="links" id="collections" onMouseEnter={() => props.onShowSubMenuCollection()} >Collections</Nav.Link>
-                <Nav.Link href="/store" className="links" onMouseEnter={() => props.onShowSubMenuCatagories()}>Catagories</Nav.Link>
+                <Nav.Link href="/store/all" className="links" id="collections" onMouseEnter={() => props.onShowSubMenuCollection()} >Collections</Nav.Link>
+                <Nav.Link href="/store/all" className="links" onMouseEnter={() => props.onShowSubMenuCatagories()}>Catagories</Nav.Link>
             </Nav>
             <Form inline>
                 <FormControl type="text" id="searchBtn" placeholder="Search" className="mr-sm-2" />

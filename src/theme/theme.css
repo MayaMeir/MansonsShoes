@@ -40,6 +40,10 @@ html{
 }
 #details{
     font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 #prodDescription{
     text-align: left;
@@ -119,4 +123,8 @@ html{
 
 #prodImg{
   height: 367px;
+}
+
+#sizeForm{
+  margin: auto;
 }

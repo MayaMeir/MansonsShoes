@@ -21,39 +21,39 @@ const onSubmit = data => console.log(data);
     <Form style={{width:"85%", textAlign:"left", marginTop:"20px"}} id="checkoutForm" onSubmit={handleSubmit(onSubmit)}>
       <span>if user is logged in, names is filled automatically</span>
   <Form.Row>
-    <Form.Group as={Col} controlId="formGridName">
+    <Form.Group as={Col} controlId="formGridName" className="spans">
       <Form.Control type="text" placeholder="First Name" name="firstName" ref={register({required: true, maxLength: 20})}/>
       {errors.firstName && <span style={{color:"red"}}> * </span>}
 
     </Form.Group>
 
-    <Form.Group as={Col} controlId="formGridLastName">
+    <Form.Group as={Col} controlId="formGridLastName" className="spans">
       <Form.Control type="text" placeholder="Last Name" name="lastName" ref={register({required: true, maxLength: 20})}/>
       {errors.lastName && <span style={{color:"red"}}> * </span>}
 
     </Form.Group>
   </Form.Row>
 
-  <Form.Group controlId="formGridAddress1">
+  <Form.Group controlId="formGridAddress1" className="spans">
     <Form.Control placeholder="Address Line 1" name="address1" ref={register({required: true, minLength: 7})}/>
     {errors.address1 && <span style={{color:"red"}}>* </span>}
 
   </Form.Group>
 
-  <Form.Group controlId="formGridAddress2">
+  <Form.Group controlId="formGridAddress2" className="spans">
     <Form.Control placeholder="Address Line 2" name="address2" ref={register({required: true, minLength: 7})}/>
     {errors.address2 && <span style={{color:"red"}}>* </span>}
 
   </Form.Group>
 
   <Form.Row>
-    <Form.Group as={Col} controlId="formGridCity" >
+    <Form.Group as={Col} controlId="formGridCity" className="spans">
       <Form.Control placeholder="City" name="city" ref={register({required: true, minLength: 4})}/>
       {errors.city && <span style={{color:"red"}}>* </span>}
 
     </Form.Group>
 
-    <Form.Group as={Col} controlId="formGridState">
+    <Form.Group as={Col} controlId="formGridState" className="spans">
       <Form.Control as="select" defaultValue="Country" name="country" ref={register({required: true})}>
         <option value="init">Country</option>
         <option value="Afghanistan">Afghanistan</option>
@@ -305,7 +305,7 @@ const onSubmit = data => console.log(data);
 
     </Form.Group>
 
-    <Form.Group as={Col} controlId="formGridZip">
+    <Form.Group as={Col} controlId="formGridZip" className="spans">
       <Form.Control placeholder="Zip Code" name="zip" ref={register({required: true})} style={{display:"inline-block"}}/>
       {errors.zip && <span style={{color:"red", display:"inline-block"}}>* </span>}
 
