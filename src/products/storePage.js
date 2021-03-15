@@ -19,7 +19,7 @@ function StorePage(props) {
           setSortProds(products.data);
         }
         getData();
-}, [setSortProds])
+}, [])
 
   let [sortVal, setSortVal] = useState('initial');
   function ascend() {

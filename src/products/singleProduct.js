@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+
 function SingleProduct(props) {
   const devURL= "http://localhost:3001";
 
@@ -14,23 +15,22 @@ function SingleProduct(props) {
   let [prods, setSortProds] = useState([]);
   let [loading, setLoading] = useState(true);
   let [product, setProduct] = useState({});
-  useEffect(() => {
 
+  useEffect(() => {
      async function getData () {
       products = await axios.get('http://localhost:3001/store/all');
-      console.log(products.data);
+    console.log('in singleProduct');
       setSortProds(products.data);
       const prod = (products.data.find((item) => {
         return item.id == id;
       }))
       setProduct(prod);
       console.log(product);
-      setLoading(false);
-      
+      setLoading(false); 
     }
     getData();
+  }, [])
 
-  }, [setSortProds])
 
   let starsPara;
 

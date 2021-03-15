@@ -1,13 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import ImgSrc from './pictures/logo1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './theme.css';
+import SubMenu from './subMenu';
+import SubMenuCata from './subMenuCata';
 
 
 function Header(props) {
+
+    
+let [isVisibleCollection, setIsVisibleCollection] = useState(false);
+let [isVisibleCatagories, setIsVisibleCatagories] = useState(false);
+
+
+const toggleVisibleCollections = () => {
+if(isVisibleCatagories){
+  toggleVisibleFalseCatagories();
+}
+setIsVisibleCollection(true)
+}
+
+const toggleVisibleCatagories = () => {
+if (isVisibleCollection){
+  toggleVisibleFalseCollection();
+}
+setIsVisibleCatagories(true)
+}
+
+const toggleVisibleFalseCollection = () => {
+setIsVisibleCollection(false)
+}
+
+const toggleVisibleFalseCatagories = () => {
+setIsVisibleCatagories(false)
+}
+
     return <header>
 
         <Navbar variant="dark" style={{ backgroundColor: "black"}}>
@@ -22,8 +52,8 @@ function Header(props) {
             <Nav>
                 <Nav.Link href="/about" className="links">About Us</Nav.Link>
                 <Nav.Link href="/feed" className="links">Pics!</Nav.Link>
-                <Nav.Link href="/store/all" className="links" id="collections" onMouseEnter={() => props.onShowSubMenuCollection()} >Collections</Nav.Link>
-                <Nav.Link href="/store/all" className="links" onMouseEnter={() => props.onShowSubMenuCatagories()}>Catagories</Nav.Link>
+                <Nav.Link href="/store/all" className="links" id="collections" onMouseEnter={() => toggleVisibleCollections()} >Collections</Nav.Link>
+                <Nav.Link href="/store/all" className="links" onMouseEnter={() => toggleVisibleCatagories()}>Catagories</Nav.Link>
             </Nav>
             <Form inline>
                 <FormControl type="text" id="searchBtn" placeholder="Search" className="mr-sm-2" />
@@ -41,6 +71,8 @@ function Header(props) {
                 <Nav.Link href="/login" className="links" style={{ color: "white" }}>Login Sign Up</Nav.Link>
             </div>
         </Navbar>
+        {isVisibleCollection && <SubMenu onShowSubMenuOff={() => toggleVisibleFalseCollection()}/>}
+       {isVisibleCatagories && <SubMenuCata onShowSubMenuOff={() => toggleVisibleFalseCatagories()}/>}
     </header>
 }
 

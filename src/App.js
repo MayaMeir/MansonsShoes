@@ -95,39 +95,13 @@ function App() {
   },]
 
 
-let [isVisibleCollection, setIsVisibleCollection] = useState(false);
-let [isVisibleCatagories, setIsVisibleCatagories] = useState(false);
-
-
-const toggleVisibleCollections = () => {
-if(isVisibleCatagories){
-  toggleVisibleFalseCatagories();
-}
-setIsVisibleCollection(isVisibleCollection = true)
-}
-
-const toggleVisibleCatagories = () => {
-if (isVisibleCollection){
-  toggleVisibleFalseCollection();
-}
-setIsVisibleCatagories(isVisibleCatagories = true)
-}
-
-const toggleVisibleFalseCollection = () => {
-setIsVisibleCollection(isVisibleCollection = false)
-}
-
-const toggleVisibleFalseCatagories = () => {
-setIsVisibleCatagories(isVisibleCatagories = false)
-}
 
 
   return (
     <div className="App">
       <div className="content" style={{position:"relative"}}>
-        <Header onShowSubMenuCollection={() => toggleVisibleCollections()} onShowSubMenuCatagories={() => toggleVisibleCatagories()}/>
-       {isVisibleCollection && <SubMenu onShowSubMenuOff={() => toggleVisibleFalseCollection()}/>}
-       {isVisibleCatagories && <SubMenuCata onShowSubMenuOff={() => toggleVisibleFalseCatagories()}/>}
+        <Header />
+      
       </div>
       {/* ROUTING */}
       <Router>
@@ -135,7 +109,7 @@ setIsVisibleCatagories(isVisibleCatagories = false)
       <Route exact path="/" component={HomePage} />
       <Route exact path="/about" component={AboutPage} />
       <Route exact path="/store/:filter" component={() => <StorePage products={products} />} />
-      <Route exact path="/product/:id" component={() => <SingleProduct products={products} />} />
+      <Route exact path="/product/:id" component={() => <SingleProduct />} />
       <Route exact path="/contactUs" component={Contact} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={SignUp} />
