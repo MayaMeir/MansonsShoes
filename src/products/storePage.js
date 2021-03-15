@@ -1,39 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import OneProduct from './oneProduct';
-import { Container, Col, Row, Form, Breadcrumb } from 'react-bootstrap';
-
+import { Container, Col, Row, Form} from 'react-bootstrap';
 import '../theme/theme.css';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 function StorePage(props) {
 
   let {filter}=useParams();
   
-  let products = props.products;
+  let products = [];
+  let [prods, setSortProds] = useState([]);
+  useEffect (()=> {
+    
+        const getData = async()=> {
+          products = await axios.get('http://localhost:3001/store/all') ;
+          console.log(products.data);
+          setSortProds(products.data);
+        }
+        getData();
+  
+}, [setSortProds])
 
-  if (filter) {
-  products = products.filter((item) => {
-      return (item.collection == filter || item.catagory == filter);
-    })
-  }
-  if (filter == 'all'){
-    products = props.products;
-  }
+  // if (filter) {
+  // products = products.filter((item) => {
+  //     return (item.collections == filter || item.catagory == filter);
+  //   })
+  //   setSortProds(products);
 
-  let [prods, setSortProds] = useState(products);
+  // }
+  // if (filter == 'all'){
+  //   products = props.products;
+  // }
+
+  
   let [sortVal, setSortVal] = useState('initial');
   function ascend() {
     const sortedProds = prods.sort(function (a, b) { return a.price - b.price })
-    setSortProds([...sortedProds]);
+    setSortProds(sortedProds);
   }
 
   function desc() {
     const sortedProdsDesc = prods.sort(function (a, b) { return b.price - a.price })
-    setSortProds([...sortedProdsDesc]);
+    setSortProds(sortedProdsDesc);
   }
   function topRating() {
     const sortedProdsDesc = prods.sort(function (a, b) { return b.rating - a.rating })
-    setSortProds([...sortedProdsDesc]);
+    setSortProds(sortedProdsDesc);
   }
 
   const handleChanges = (selectedItem) => {
@@ -51,8 +64,7 @@ function StorePage(props) {
   }
 
   let displayFilter = filter[0].toUpperCase() +  filter.slice(1); 
-
-
+console.log(prods);
   return <>
     <Container>
 

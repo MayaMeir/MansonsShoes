@@ -6,10 +6,12 @@ import src from './productPics/smilyBoots/0TNAnKFNOQEvHcxzOc9UZHGjKeZHtJQu-33.jp
 import {LinkContainer} from 'react-router-bootstrap';
 
 function OneProduct(props){
+  const devURL= "http://localhost:3001";
+
     return <>
     <Card id="prodCard">
       <LinkContainer to={`/product/${props.product.id}`}style={{height: '367px', cursor: "pointer"}}>
-    <HoverImage id="prodImg" src={props.product.mainPicSrc} hoverSrc={src} style={{height: '367px'}}/>
+    <HoverImage id="prodImg" src={`${devURL}/images/${props.product.pic1}`} hoverSrc={`${devURL}/images/${props.product.pic2}`} style={{height: '367px'}}/>
     </LinkContainer>
   <Card.Body>
     <Card.Title id="cardName">{props.product.name}</Card.Title>

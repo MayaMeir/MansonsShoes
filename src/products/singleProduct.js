@@ -9,10 +9,21 @@ function SingleProduct(props) {
     let stars = [];
     let {id}=useParams();
   
-    let products = props.products;
-    console.log(products);
+    // let products = props.products;
+    // console.log(products);
+    let [prods, setSortProds] = useState([]);
+  useEffect (()=> {
+    
+        const getData = async()=> {
+          products = await axios.get('http://localhost:3001/store/all') ;
+          console.log(products.data);
+          setSortProds(products.data);
+        }
+        getData();
+  
+}, [setSortProds])
 
-   const product = products.find((item) => {
+   const product = prods.find((item) => {
       return item.id == parseInt(id);
     })
 
