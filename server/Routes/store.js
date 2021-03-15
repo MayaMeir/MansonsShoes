@@ -14,18 +14,17 @@ router.get('/all', (req, res) => {
 });
 
 router.get('/:catagory', (req, res) => {
-    productModel.find({ catagory: req.params.catagory }, (err, documents) => {
+    if (req.params.catagory){
+    productModel.find({$or: [{catagory: req.params.catagory}, {collections: req.params.catagory}]}, (err, documents) => {
         err ? res.status(500).send('error') : res.status(200).send(documents);
-    })
+    })}
+    else{
+        console.log('in else');
+        
+    }
 
 });
 
-router.get('/:collection', (req, res) => {
-    productModel.find({ collection: req.params.collection }, (err, documents) => {
-        err ? res.status(500).send('error') : res.status(200).send(documents);
-    })
-
-});
 
 router.post('/addNew', (req, res) => {
     // TODO : VALIDATION

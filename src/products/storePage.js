@@ -11,42 +11,29 @@ function StorePage(props) {
   
   let products = [];
   let [prods, setSortProds] = useState([]);
+
   useEffect (()=> {
-    
         const getData = async()=> {
-          products = await axios.get('http://localhost:3001/store/all') ;
+          products = await axios.get(`http://localhost:3001/store/${filter}`) ;
           console.log(products.data);
           setSortProds(products.data);
         }
         getData();
-  
 }, [setSortProds])
 
-  // if (filter) {
-  // products = products.filter((item) => {
-  //     return (item.collections == filter || item.catagory == filter);
-  //   })
-  //   setSortProds(products);
-
-  // }
-  // if (filter == 'all'){
-  //   products = props.products;
-  // }
-
-  
   let [sortVal, setSortVal] = useState('initial');
   function ascend() {
     const sortedProds = prods.sort(function (a, b) { return a.price - b.price })
-    setSortProds(sortedProds);
+    setSortProds([...sortedProds]);
   }
 
   function desc() {
     const sortedProdsDesc = prods.sort(function (a, b) { return b.price - a.price })
-    setSortProds(sortedProdsDesc);
+    setSortProds([...sortedProdsDesc]);
   }
   function topRating() {
     const sortedProdsDesc = prods.sort(function (a, b) { return b.rating - a.rating })
-    setSortProds(sortedProdsDesc);
+    setSortProds([...sortedProdsDesc]);
   }
 
   const handleChanges = (selectedItem) => {
