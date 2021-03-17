@@ -3,10 +3,11 @@ import './signup.css';
 import {Button, Form } from 'react-bootstrap';
 import bg from './dragparty.jpg';
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 function SignUp(){
     const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => axios.post('http://localhost:3001/signup', data);
 
     return <div id="container">
         <img src={bg} alt="bg" id="bg"/>

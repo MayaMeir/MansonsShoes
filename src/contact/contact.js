@@ -3,11 +3,29 @@ import bg from './gossip.jpg';
 import './contact.css';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import swal from 'sweetalert';
+
 
 function Contact(){
 
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data, r) => {
+    swal("Thank You!", "Your Message Has Been Sent!", "success");
+    const templateId = 'template_rkibsgs';
+    const serviceID = 'my_gmail';
+    sendFeedback(serviceID, templateId, { fullName: data.fullName, msg: data.msg, email: data.email })
+    r.target.reset();
+}
+
+const sendFeedback = (serviceID, templateId, variables) => {
+  window.emailjs.send(
+      serviceID, templateId,
+      variables
+  ).then(res => {
+      console.log('Email successfully sent!')
+  })
+      .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
+}
 
     return <>
             <img src={bg} alt="bg" id="bg"/>

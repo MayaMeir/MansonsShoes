@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const storeRoutes = require('./Routes/store');
+const signupRoutes = require('./Routes/signup');
 const app = express();
 
 app.use(express.json());
@@ -11,6 +12,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/store', storeRoutes);
+app.use('/signup', signupRoutes);
+
 
 
 

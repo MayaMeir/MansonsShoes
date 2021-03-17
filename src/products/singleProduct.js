@@ -25,7 +25,6 @@ function SingleProduct(props) {
         return item.id == id;
       }))
       setProduct(prod);
-      console.log(product);
       setLoading(false); 
     }
     getData();

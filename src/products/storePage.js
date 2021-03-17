@@ -51,8 +51,8 @@ function StorePage(props) {
   }
 
   let displayFilter = filter[0].toUpperCase() +  filter.slice(1); 
-console.log(prods);
-  return <>
+
+return <>
     <Container>
 
       <Row style={{ marginTop: "7px", height: "50px" }}>
