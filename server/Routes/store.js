@@ -27,7 +27,6 @@ router.get('/:catagory', (req, res) => {
 
 
 router.post('/addNew', (req, res) => {
-    // TODO : VALIDATION
     const product = new productModel(req.body);
     product.save().then(() => res.send("success"));
 });

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import CartCard from './cartcard';
 import './cart.css';
-
+import bg from './bg.jpg';
 function Cart(props) {
 
     let [prods, updateProds] = useState(props.products);
@@ -23,6 +23,8 @@ function Cart(props) {
     
 
     return <div>
+            <img src={bg} alt="bg" id="bg"/>
+
         <Container style={{marginTop:"15px"}}>
             <Row>
                 <h1>Soon To Be Yours</h1>

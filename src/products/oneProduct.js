@@ -6,10 +6,9 @@ import { LinkContainer } from 'react-router-bootstrap';
 function OneProduct(props) {
   const devURL = "http://localhost:3001";
 
-let picShown = `${devURL}/images/${props.product.pic1}`;
   return <>
     <Card id="prodCard">
-      <LinkContainer to={`/product/${props.product.id}`} style={{ height: '367px', cursor: "pointer" }}>
+      <LinkContainer to={`/product/${props.product.id}`} style={{ height: '367px', cursor: "pointer", borderRadius:"5px" }}>
         <img
     src={`${devURL}/images/${props.product.pic1}`}
     onMouseOver={e => (e.currentTarget.src = `${devURL}/images/${props.product.pic2}`)}

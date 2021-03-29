@@ -4,6 +4,8 @@ import { Container, Col, Row, Form} from 'react-bootstrap';
 import '../theme/theme.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import "./store.css";
+import bg from './background.jpg';
 
 function StorePage(props) {
 
@@ -53,6 +55,8 @@ function StorePage(props) {
   let displayFilter = filter[0].toUpperCase() +  filter.slice(1); 
 
 return <>
+    <img src={bg} alt="bg" id="storeBg"/>
+
     <Container>
 
       <Row style={{ marginTop: "7px", height: "50px" }}>
@@ -90,4 +94,3 @@ export default StorePage;
 
 
 
-{/* <OneProduct /> */ }

@@ -7,7 +7,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 function HomePage(){
 
     return <div>
-          <LinkContainer to={'/store/crystal'} style={{margin:"15px", cursor: "pointer"}}>
+          <LinkContainer to={'/store/Crystal'} style={{margin:"15px", cursor: "pointer"}}>
     <img
     alt="Princess"
     src={Princess}
@@ -15,7 +15,7 @@ function HomePage(){
     style={{marginTop:"10px", marginBottom:"10px"}}
 
 /></LinkContainer>
-        <LinkContainer to={'/store/elvira'} style={{margin:'15px', cursor: "pointer"}}>
+        <LinkContainer to={'/store/Elvira'} style={{margin:'15px', cursor: "pointer"}}>
         <img
                 alt="Banner"
                 src={Banner}

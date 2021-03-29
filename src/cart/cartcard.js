@@ -26,14 +26,14 @@ function CartCard(props) {
           <div className="card-body">
             <h2 className="card-title">{props.product.name}</h2>
             <div className="card-text">
-              <ButtonGroup aria-label="Basic example" id="quantity">
+              {/* <ButtonGroup aria-label="Basic example" id="quantity">
                 <Button variant="secondary" onClick={remove} className="quanSelectors">-1</Button>
                 <Button variant="secondary" disabled className="quanSelectors">{counter}</Button>
                 <Button variant="secondary" onClick={add} className="quanSelectors">+1</Button>
-              </ButtonGroup>
+              </ButtonGroup> */}
             </div>
             <p className="card-text">
-              <small className="text-muted">{props.product.price}$</small>
+              <p className="text-muted">{props.product.price}$</p>
               <Button variant="dark" style={{ float: "right" }} onClick={() => props.onRemoveItem(props.product.id)}>Remove</Button>
             </p>
           </div>

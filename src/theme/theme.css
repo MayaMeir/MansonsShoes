@@ -72,7 +72,7 @@ ul {
   }
 
   #prodCard{
-    background-color: lightgray;
+    background-color: rgba(211, 211, 211, 0);
     border: none;
     width: 280px;
     border-radius:0px;

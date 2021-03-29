@@ -17,4 +17,4 @@ app.use('/signup', signupRoutes);
 
 
 
-app.listen(3001, () => console.log('server is runing..'))
+app.listen(3001, () => console.log('server is running..'))
