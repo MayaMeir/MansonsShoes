@@ -29,7 +29,7 @@ function Footer() {
                 <Nav.Link href="https://www.facebook.com/Maya.Meir483/" style={{ fontSize: "30px" }} target="_blank">
                     <FontAwesomeIcon style={{ color: "blue" }} icon={faFacebook} />
                 </Nav.Link>
-                <Nav.Link href="https://www.instagram.com/mayameirr/" id="instaLogo" target="_blank">
+                <Nav.Link href="https://www.instagram.com/mansonsshoes/" id="instaLogo" target="_blank">
                     
                     <img 
                         alt={"logo"}

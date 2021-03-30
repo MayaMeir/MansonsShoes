@@ -31,12 +31,7 @@ function Login(){
 
                 </div>
 
-                <div className="form-group">
-                    <div className="custom-control custom-checkbox">
-                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-                    </div>
-                </div>
+                
 
                 <Button variant="outline-dark" block id="btn" type="submit">Submit</Button>
                 <p className="forgot-password text-right">

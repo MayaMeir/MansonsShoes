@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Container, Col, Row, Form, Button } from 'react-bootstrap';
 import '../theme/theme.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import bg from './galaxy.jpg';
+import './store.css';
+import {thing} from '../cartContext/cartContext';
 
 function SingleProduct(props) {
   const devURL= "http://localhost:3001";
+  let [cart, setCart] = useContext(thing);
 
   let stars = [];
   let { id } = useParams();
@@ -15,6 +19,14 @@ function SingleProduct(props) {
   let [prods, setSortProds] = useState([]);
   let [loading, setLoading] = useState(true);
   let [product, setProduct] = useState({});
+
+function addToCart(){
+  //ADDING TO CART
+  
+  cart.cart.push(product);
+  setCart({...cart});
+  console.log(cart);
+}
 
   useEffect(() => {
      async function getData () {
@@ -40,7 +52,10 @@ function SingleProduct(props) {
     starsPara = <div>{stars}</div>;
   }
   return (loading ? <div>{'loading'} </div> :
-    <div><Container id="productPage">
+    <div>
+          <img src={bg} alt="bg" id="galaxyBg"/>
+
+      <Container id="productPage">
       <Row>
         <Col><img
           alt={"logo"}
@@ -96,7 +111,7 @@ function SingleProduct(props) {
             </Form>
           </div>
           <div>
-            <Button variant="dark">Add To Cart</Button>
+            <Button variant="dark" onClick={addToCart} >Add To Cart</Button>
           </div>
         </Col>
       </Row>

@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import CartCard from './cartcard';
 import './cart.css';
 import bg from './bg.jpg';
-function Cart(props) {
+import {thing} from '../cartContext/cartContext';
 
-    let [prods, updateProds] = useState(props.products);
+function Cart(props) {
+    console.log(thing);
+    let [cart, setCart] = useContext(thing);
+
+    let [prods, updateProds] = useState(cart.cart);
+    console.log(cart);
     let initialPrice =0;
     for (let prod of prods){
         initialPrice+= parseInt(prod.price);

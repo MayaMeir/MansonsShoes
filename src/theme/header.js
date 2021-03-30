@@ -7,6 +7,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './theme.css';
 import SubMenu from './subMenu';
 import SubMenuCata from './subMenuCata';
+import {LinkContainer} from 'react-router-bootstrap';
+
 
 
 function Header(props) {
@@ -62,6 +64,7 @@ setIsVisibleCatagories(false)
                 </Nav.Link>
             </Form>
             <div style={{ display: "flex", marginLeft: "auto" }}>
+                
                 <Nav.Link href="/cart" >
                     <FontAwesomeIcon style={{ color: "white" }} icon={faShoppingCart} />
                 </Nav.Link>
