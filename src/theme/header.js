@@ -7,75 +7,99 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './theme.css';
 import SubMenu from './subMenu';
 import SubMenuCata from './subMenuCata';
-import {LinkContainer} from 'react-router-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 
 function Header(props) {
 
-    
-let [isVisibleCollection, setIsVisibleCollection] = useState(false);
-let [isVisibleCatagories, setIsVisibleCatagories] = useState(false);
+    let [searchWord, setSearchWord] = useState('');
+
+    let [isVisibleCollection, setIsVisibleCollection] = useState(false);
+    let [isVisibleCatagories, setIsVisibleCatagories] = useState(false);
 
 
-const toggleVisibleCollections = () => {
-if(isVisibleCatagories){
-  toggleVisibleFalseCatagories();
-}
-setIsVisibleCollection(true)
-}
+    const toggleVisibleCollections = () => {
+        if (isVisibleCatagories) {
+            toggleVisibleFalseCatagories();
+        }
+        setIsVisibleCollection(true)
+    }
 
-const toggleVisibleCatagories = () => {
-if (isVisibleCollection){
-  toggleVisibleFalseCollection();
-}
-setIsVisibleCatagories(true)
-}
+    const toggleVisibleCatagories = () => {
+        if (isVisibleCollection) {
+            toggleVisibleFalseCollection();
+        }
+        setIsVisibleCatagories(true)
+    }
 
-const toggleVisibleFalseCollection = () => {
-setIsVisibleCollection(false)
-}
+    const toggleVisibleFalseCollection = () => {
+        setIsVisibleCollection(false)
+    }
 
-const toggleVisibleFalseCatagories = () => {
-setIsVisibleCatagories(false)
-}
+    const toggleVisibleFalseCatagories = () => {
+        setIsVisibleCatagories(false)
+    }
 
     return <header>
 
-        <Navbar variant="dark" style={{ backgroundColor: "black"}}>
+        <Navbar variant="dark" style={{ backgroundColor: "black" }}>
+            <LinkContainer to="/">
+                <Navbar.Brand href="/">
+                    <img
+                        alt={"logo"}
+                        src={ImgSrc}
+                        width={"450"}
+                        height={"85"}
+                        className={"d-inline-block align-top"}
+                    />
+                </Navbar.Brand>
+            </LinkContainer>
 
-            <Navbar.Brand href="/"> <img
-                alt={"logo"}
-                src={ImgSrc}
-                width={"450"}
-                height={"85"}
-                className={"d-inline-block align-top"}
-            /></Navbar.Brand>
+
             <Nav>
-                <Nav.Link href="/about" className="links">About Us</Nav.Link>
+                <LinkContainer to="/about">
+                    <Nav.Link className="links">About Us</Nav.Link>
+                </LinkContainer>
                 <Nav.Link href="/feed" className="links">Pics!</Nav.Link>
-                <Nav.Link href="/store/all" className="links" id="collections" onMouseEnter={() => toggleVisibleCollections()} >Collections</Nav.Link>
-                <Nav.Link href="/store/all" className="links" onMouseEnter={() => toggleVisibleCatagories()}>Catagories</Nav.Link>
+                <LinkContainer to="/store/all">
+                    <Nav.Link className="links" id="collections" onMouseEnter={() => toggleVisibleCollections()} >Collections</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/store/all">
+                    <Nav.Link className="links" onMouseEnter={() => toggleVisibleCatagories()}>Catagories</Nav.Link>
+                </LinkContainer>
             </Nav>
-            <Form inline>
-                <FormControl type="text" id="searchBtn" placeholder="Search" className="mr-sm-2" />
-                <Nav.Link href="" >
-                    <FontAwesomeIcon style={{ color: "white" }} icon={faSearch} />
+            <Form inline onSubmit={(e) =>{
+                e.preventDefault();
+            }} >
+                <FormControl type="text" id="searchBtn" placeholder="Search" className="mr-sm-2" onChange={(e)=>{
+                    setSearchWord(e.target.value);
+                }}/>
+                <LinkContainer to="/store/all">
+                    <Nav.Link>
+                    <FontAwesomeIcon style={{ color: "white" }} icon={faSearch} onClick={props.searchFunc(searchWord)} />
                 </Nav.Link>
+                </LinkContainer>
             </Form>
             <div style={{ display: "flex", marginLeft: "auto" }}>
-                
-                <Nav.Link href="/cart" >
-                    <FontAwesomeIcon style={{ color: "white" }} icon={faShoppingCart} />
-                </Nav.Link>
+                <LinkContainer to="/cart">
+                    <Nav.Link  >
+                        <FontAwesomeIcon style={{ color: "white" }} icon={faShoppingCart} />
+                    </Nav.Link>
+                </LinkContainer>
             </div>
+
             <div id="contactLogin">
-                <Nav.Link href="/contactUs" className="links" style={{ color: "white" }}>Contact Us</Nav.Link>
-                <Nav.Link href="/login" className="links" style={{ color: "white" }}>Login Sign Up</Nav.Link>
+                <LinkContainer to="/contactUs">
+                    <Nav.Link className="links" style={{ color: "white" }}>Contact Us</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/login">
+                    <Nav.Link className="links" style={{ color: "white" }}>Login / Sign Up</Nav.Link>
+                </LinkContainer>
             </div>
         </Navbar>
-        {isVisibleCollection && <SubMenu onShowSubMenuOff={() => toggleVisibleFalseCollection()}/>}
-       {isVisibleCatagories && <SubMenuCata onShowSubMenuOff={() => toggleVisibleFalseCatagories()}/>}
+        {isVisibleCollection && <SubMenu onShowSubMenuOff={() => toggleVisibleFalseCollection()} />}
+        {isVisibleCatagories && <SubMenuCata onShowSubMenuOff={() => toggleVisibleFalseCatagories()} />}
     </header>
 }
 

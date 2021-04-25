@@ -4,9 +4,10 @@ import CartCard from './cartcard';
 import './cart.css';
 import bg from './bg.jpg';
 import {thing} from '../cartContext/cartContext';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function Cart(props) {
-    console.log(thing);
+
     let [cart, setCart] = useContext(thing);
 
     let [prods, updateProds] = useState(cart.cart);
@@ -45,8 +46,9 @@ function Cart(props) {
                     <h1>Order Summery</h1>
                     <h4>Number Of Items: {prods.length}</h4>    
                     <h4>Total Amount: {sum}$</h4>  
-                    <Button variant="outline-dark" id="checkoutBtn" href="./checkout">Continue To Checkout</Button>
-  
+                    <LinkContainer to="/checkout">                   
+                     <Button variant="outline-dark" id="checkoutBtn" >Continue To Checkout</Button>
+                    </LinkContainer>
                     </div>
                     </Col>
             </Row>

@@ -14,14 +14,17 @@ router.get('/all', (req, res) => {
 });
 
 router.get('/:catagory', (req, res) => {
-    if (req.params.catagory){
+    if(req.params.catagory == 'all'){
+        productModel.find({}, (err, documents) => {
+            err ? res.status(500).send('error') : res.status(200).send(documents);
+        })
+        
+    }
+    if (req.params.catagory != 'all'){
     productModel.find({$or: [{catagory: req.params.catagory}, {collections: req.params.catagory}]}, (err, documents) => {
         err ? res.status(500).send('error') : res.status(200).send(documents);
     })}
-    else{
-        console.log('in else');
-        
-    }
+    
 
 });
 

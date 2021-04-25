@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import './checkout.css';
-import { useForm } from "react-hook-form";
 import bg from './checkoutbg.jpg';
 import {Button , Form, Row, Col, Container,InputGroup, FormControl } from 'react-bootstrap';
 import PayPalBtn from '../paypal/paypalbtn';
+import {thing} from '../cartContext/cartContext';
 
 function Checkout(props){
-let sum = 0;
+  let [cart, setCart] = useContext(thing);
 const shipping = 20;
-for (let product of props.products){
-    sum += parseInt(product.price)
+let [prods, updateProds] = useState(cart.cart);
+let sum = 0;
+
+for (let prod of prods){
+    sum+= parseInt(prod.price);
 }
-
-
 
 const paymentHandler = (details, data) => {
   console.log(details, data);
 }
+
 
     return <>
     <img src={bg} alt="bg" id="bg"/>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
 import './theme.css';
 
 
@@ -6,12 +7,12 @@ function SubMenuCata(props) {
 
     return <div className="subMenu" id="submenu" onMouseLeave={() => props.onShowSubMenuOff()} >
         <ul>
-        <li><a href="/store/all">All Shoes</a></li>
-            <li><a href="/store/Heels">Heels</a></li>
-            <li><a href="/store/Boots">Boots</a></li>
-            <li><a href="/store/Sneakers">Sneakers</a></li>
-            <li><a href="/store/Flats">Flats</a></li>
-            <li><a href="/store/Platforms">Platforms</a></li>
+            <LinkContainer to="/store/all"><li><a style={{color:"white"}}>All Shoes</a></li></LinkContainer>
+           <LinkContainer to="/store/Heels"><li><a style={{color:"white"}}>Heels</a></li></LinkContainer> 
+           <LinkContainer to="/store/Boots"><li><a style={{color:"white"}}>Boots</a></li></LinkContainer> 
+            <LinkContainer to="/store/Sneakers"><li><a style={{color:"white"}}>Sneakers</a></li></LinkContainer>
+          <LinkContainer to="/store/Flats"><li><a style={{color:"white"}}>Flats</a></li></LinkContainer>  
+           <LinkContainer to="/store/Platforms"><li><a style={{color:"white"}}>Platforms</a></li></LinkContainer>
         </ul>
     </div>
 

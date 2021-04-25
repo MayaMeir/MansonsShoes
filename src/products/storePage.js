@@ -15,13 +15,28 @@ function StorePage(props) {
   let [prods, setSortProds] = useState([]);
 
   useEffect (()=> {
-        const getData = async()=> {
+    if (!props.keyword){const getData = async()=> {
+      console.log('no keyword');
           products = await axios.get(`http://localhost:3001/store/${filter}`) ;
-          console.log(products.data);
           setSortProds(products.data);
         }
-        getData();
-}, [])
+        getData();}
+        if(props.keyword){
+         const searchData = async()=>{
+          products = await axios.get(`http://localhost:3001/store/all`) ;
+          setSortProds(products.data.filter(search));}
+          searchData();
+        }
+        
+}, [filter])
+
+function search(item) {
+  return (
+    item.name.toLowerCase().includes(props.keyword.toLowerCase()) || item.description.toLowerCase().includes(props.keyword.toLowerCase())
+  );
+}
+
+
 
   let [sortVal, setSortVal] = useState('initial');
   function ascend() {

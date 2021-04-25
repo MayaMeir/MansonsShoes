@@ -14,14 +14,17 @@ function CartCard(props) {
   function remove() {
     setCount(counter - 1);
   }
-
+  const devURL = "http://localhost:3001";
 
   return (<>
     <div className="card mb-3" style={{ width: '500px', textAlign: "left" }}>
       <div className="row no-gutters">
         <div className="col-md-4">
-          <HoverImage id="prodImg" src={props.product.mainPicSrc} hoverSrc={src} style={{ height: '220px' }} />
-        </div>
+        <img style={{height:"200px"}}
+    src={`${devURL}/images/${props.product.pic1}`}
+    onMouseOver={e => (e.currentTarget.src = `${devURL}/images/${props.product.pic2}`)}
+    onMouseLeave={e => (e.currentTarget.src = `${devURL}/images/${props.product.pic1}`)}
+  />        </div>
         <div className="col-md-8">
           <div className="card-body">
             <h2 className="card-title">{props.product.name}</h2>

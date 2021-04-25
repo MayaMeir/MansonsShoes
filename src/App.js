@@ -11,7 +11,7 @@ import { useState } from 'react';
 import StorePage from './products/storePage.js';
 import AboutPage from './about/about.js';
 import HomePage from './homepage/homePage.js';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Contact from './contact/contact';
 import Login from './login_signup/login';
 import SignUp from './login_signup/signup';
@@ -95,20 +95,24 @@ function App() {
   },]
 
 
+  let [keyword, setKeyword] = useState()
+
 
 
   return (
     <div className="App">
+      <Router>
       <div className="content" style={{position:"relative"}}>
-        <Header />
-      
+        <Header searchFunc={(word)=>{
+          setKeyword(word)
+        }}/>
       </div>
       {/* ROUTING */}
-      <Router>
     <div id="compo">
+      <Switch>
       <Route exact path="/" component={HomePage} />
       <Route exact path="/about" component={AboutPage} />
-      <Route exact path="/store/:filter" component={() => <StorePage products={products} />} />
+      <Route exact path="/store/:filter" component={() => <StorePage keyword={keyword} />} />
       <Route exact path="/product/:id" component={() => <SingleProduct />} />
       <Route exact path="/contactUs" component={Contact} />
       <Route exact path="/login" component={Login} />
@@ -118,7 +122,7 @@ function App() {
       <Route exact path="/feed" component={ShowFeed} />
       <Route exact path="/admin" component={() => <AdminPage order={order} />} />
       <Route exact path="/userPage" component={() => <UserPage order={order} />} />
-
+  </Switch>
     </div>
   </Router>
         <Footer />
