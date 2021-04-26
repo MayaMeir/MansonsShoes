@@ -97,8 +97,6 @@ function App() {
 
   let [keyword, setKeyword] = useState()
 
-
-
   return (
     <div className="App">
       <Router>
