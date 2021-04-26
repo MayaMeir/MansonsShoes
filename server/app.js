@@ -11,8 +11,8 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'build')));
 
 
-app.use('/store', storeRoutes);
-app.use('/signup', signupRoutes);
+app.use('/api/store', storeRoutes);
+app.use('/api/signup', signupRoutes);
 
 
 

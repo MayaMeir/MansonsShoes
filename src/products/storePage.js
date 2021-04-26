@@ -17,13 +17,13 @@ function StorePage(props) {
   useEffect (()=> {
     if (!props.keyword){const getData = async()=> {
       console.log('no keyword');
-          products = await axios.get(`http://localhost:3001/store/${filter}`) ;
+          products = await axios.get(`http://localhost:3001/api/store/${filter}`) ;
           setSortProds(products.data);
         }
         getData();}
         if(props.keyword){
          const searchData = async()=>{
-          products = await axios.get(`http://localhost:3001/store/all`) ;
+          products = await axios.get(`http://localhost:3001/api/store/all`) ;
           setSortProds(products.data.filter(search));}
           searchData();
         }
