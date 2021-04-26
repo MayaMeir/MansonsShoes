@@ -14,7 +14,7 @@ function CartCard(props) {
   function remove() {
     setCount(counter - 1);
   }
-  const devURL = "http://localhost:3001";
+  const devURL = "";
 
   return (<>
     <div className="card mb-3" style={{ width: '500px', textAlign: "left" }}>
