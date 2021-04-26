@@ -10,10 +10,14 @@ app.use(express.urlencoded());
 app.use(cors());
 app.use(express.static('build'));
 
-app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
 
 app.use('/api/store', storeRoutes);
 app.use('/api/signup', signupRoutes);
+
+app.get('/images/:id', (req, res)=>{
+    const id = req.params.id;
+    res.sendFile(path.join(__dirname, 'public', 'images', id))
+})
 
 app.get('/*',(req, res)=>{
     res.sendFile(path.join(__dirname, '../build', 'index.html'))
