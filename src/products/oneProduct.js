@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 function OneProduct(props) {
-  const devURL = "http://localhost:3001";
+  const devURL = "";
 
   return <>
     <Card id="prodCard">

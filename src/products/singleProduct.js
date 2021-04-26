@@ -10,7 +10,7 @@ import './store.css';
 import {thing} from '../cartContext/cartContext';
 
 function SingleProduct(props) {
-  const devURL= "http://localhost:3001";
+  const devURL= "";
   let [cart, setCart] = useContext(thing);
 
   let stars = [];
@@ -30,7 +30,7 @@ function addToCart(){
 
   useEffect(() => {
      async function getData () {
-      products = await axios.get('http://localhost:3001/store/all');
+      products = await axios.get('/api/store/all');
     console.log('in singleProduct');
       setSortProds(products.data);
       const prod = (products.data.find((item) => {
