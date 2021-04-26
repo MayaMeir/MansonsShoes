@@ -17,4 +17,4 @@ app.use('/signup', signupRoutes);
 
 
 
-app.listen(3001, () => console.log('server is running..'))
+app.listen(process.env.PORT || 3001, () => console.log('server is running..'))
