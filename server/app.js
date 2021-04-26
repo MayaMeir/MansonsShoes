@@ -7,12 +7,10 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(cors());
+app.use(cors())
 
-app.use((...args)=>{
-    console.log('statics');
-    return express.static('build')(...args);
-});
+
+app.use(express.static('build'));
 
 
 app.use('/api/store', storeRoutes);
