@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import ImgSrc from './pictures/logo1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +8,10 @@ import './theme.css';
 import SubMenu from './subMenu';
 import SubMenuCata from './subMenuCata';
 import { LinkContainer } from 'react-router-bootstrap';
-
+import Badge from "@material-ui/core/Badge";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import {thing} from '../cartContext/cartContext';
+import { grey } from '@material-ui/core/colors';
 
 
 function Header(props) {
@@ -18,6 +21,9 @@ function Header(props) {
     let [isVisibleCollection, setIsVisibleCollection] = useState(false);
     let [isVisibleCatagories, setIsVisibleCatagories] = useState(false);
 
+    let [cart, setCart] = useContext(thing);
+    let [prods, updateProds] = useState(cart.cart);
+    let cartSize = prods.length;
 
     const toggleVisibleCollections = () => {
         if (isVisibleCatagories) {
@@ -84,13 +90,16 @@ function Header(props) {
             <div style={{ display: "flex", marginLeft: "auto" }}>
                 <LinkContainer to="/cart">
                     <Nav.Link  >
-                        <FontAwesomeIcon style={{ color: "white" }} icon={faShoppingCart} />
+                    <Badge color="secondary" badgeContent={cartSize}>
+          <ShoppingCartIcon style={{ color: grey[50] }}/>{" "}
+        </Badge>
                     </Nav.Link>
                 </LinkContainer>
             </div>
 
             <div id="contactLogin">
                 <LinkContainer to="/contactUs">
+
                     <Nav.Link className="links" style={{ color: "white" }}>Contact Us</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/login">

@@ -20,6 +20,7 @@ function Cart(props) {
 
     const RemoveItem = (id) =>{
         updateProds(prods.filter(product => product.id != id));
+        setCart(prods.filter(product => product.id != id));
         for (let prod of prods){
             if (prod.id == id){
                 updateSum(initialPrice-prod.price);
